@@ -1,0 +1,21 @@
+{
+  "name": "graphql-crud-generator",
+  "version": "1.0.0",
+  "description": "A library generating GraphQL type defs and resolvers functions from a data structure to provide CRUD operations for popular databases such as MongoDB, Elasticsearch and MySQL.",
+  "main": "index.js",
+  "keywords": "graphql, crud, database, resolvers, typedefs, apollo-server-express",
+  "scripts": {
+    "test": "npm install && mocha"
+  },
+  "author": "sebpsdev",
+  "license": "ISC",
+  "homepage": "https://github.com/sebpsdev/GraphqlCrudGenerator",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0"
+  },
+  "dependencies": {
+    "mongodb": "^3.5.2",
+    "mysql": "^2.17.1"
+  }
+}
