@@ -12,6 +12,7 @@ module.exports = {
             .then(res => res.json());
             
             if(!response.result || response.result !== 'created') return { status: 'failed' };
+            
             return Object.assign({id: response._id}, { status: 'created' });
         },
         update: async (configuration, objectType, id, object) => {
@@ -24,6 +25,7 @@ module.exports = {
             .then(res => res.json());
             
             if(!response.result || response.result !== 'updated') return { status: 'failed' };
+            
             return Object.assign({id: response._id}, { status: 'updated' });
         },
         get: async (configuration, objectType, id) => {
@@ -33,7 +35,9 @@ module.exports = {
                 headers: { 'Content-Type': 'application/json' },
             })
             .then(res => res.json());
+            
             if(response.found) return Object.assign({ id: response._id }, response._source)
+            
             return null;
         },
         list: async (configuration, objectType) => {
@@ -45,6 +49,7 @@ module.exports = {
             .then(res => res.json());
             
             if(response && response.hits && response.hits.hits) return response.hits.hits.map(hit => Object.assign({ id: hit._id }, hit._source));
+            
             return [];
         },
         delete: async (configuration, objectType, id) => {
@@ -56,6 +61,7 @@ module.exports = {
             .then(res => res.json());
             
             if(!response.result || response.result !== 'deleted') return { status: 'failed' };
+            
             return Object.assign({id: response._id}, { status: 'deleted' });
         }        
     }
